@@ -1,0 +1,20 @@
+﻿MCCalendar
+
+
+winexe
+C#
+.cs
+C:\Users\Alessandro Ciotola\source\repos\MCCalendar\MCCalendar\obj\Debug\net6.0-windows\
+MCCalendar
+none
+false
+TRACE;DEBUG;NET;NET6_0;NETCOREAPP
+C:\Users\Alessandro Ciotola\source\repos\MCCalendar\MCCalendar\App.xaml
+6-314462706
+
+171076631531
+216372525966
+Controls\AppointmentControl.xaml;Controls\CalendarControl.xaml;Controls\ClientControl.xaml;Controls\EmployeeControl.xaml;MainWindow.xaml;Windows\AppointmentWindow.xaml;
+
+False
+
