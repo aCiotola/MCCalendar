@@ -26,7 +26,9 @@ namespace MCCalendar.Controls
         public AppointmentControl()
         {
             InitializeComponent();
-            this.date = DateTime.Now;
+
+            DateTime today = DateTime.Today;
+            this.date = new DateTime(today.Year, today.Month, today.Day); 
             SetupSchedule();
         }
 
@@ -37,6 +39,7 @@ namespace MCCalendar.Controls
         public AppointmentControl(DateTime date)
         {
             InitializeComponent();
+
             this.date = date;            
             SetupSchedule();
         }

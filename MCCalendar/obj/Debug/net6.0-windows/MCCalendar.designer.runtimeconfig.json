@@ -12,9 +12,8 @@
       }
     ],
     "additionalProbingPaths": [
-      "C:\\Users\\Alessandro Ciotola\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\Alessandro Ciotola\\.nuget\\packages",
-      "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      "C:\\Users\\shado\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\shado\\.nuget\\packages"
     ],
     "configProperties": {
       "Microsoft.NETCore.DotNetHostPolicy.SetAppPaths": true

@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Alessandro Ciotola\source\repos\MCCalendar\MCCalendar\obj\Debug\net6.0-windows\
+C:\Users\shado\Documents\GitHub\MCCalendar\MCCalendar\obj\Debug\net6.0-windows\
 MCCalendar
 none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
-C:\Users\Alessandro Ciotola\source\repos\MCCalendar\MCCalendar\App.xaml
+C:\Users\shado\Documents\GitHub\MCCalendar\MCCalendar\App.xaml
 6-314462706
 
 19802400918
-216372525966
+216-250250036
 Controls\AppointmentControl.xaml;Controls\CalendarControl.xaml;Controls\ClientControl.xaml;Controls\EmployeeControl.xaml;MainWindow.xaml;Windows\AppointmentWindow.xaml;
 
-True
+False
 

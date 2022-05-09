@@ -3,90 +3,615 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              d:DesignHeight="600" d:DesignWidth="800">
     <Grid Name="calendarWindow" Background="White">
         <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="*" />
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0">
+            <Button x:Name="lBtn" Content="Previous" Width="120" Height="45" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Click="lBtn_Click" Background="#FF5C99D6" BorderBrush="White"/>
+            <Button x:Name="rBtn" Content="Next" Width="120" Height="45" HorizontalAlignment="Right" Margin="0,10,50,0" VerticalAlignment="Top" Click="rBtn_Click" Background="#FF5C99D6" BorderBrush="White"/>
+
+            <Label x:Name="monthName" Content="Month" HorizontalAlignment="Center" Margin="0,20,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" FontFamily="Open Sans"/>
+        </Grid>
         
-        <Button x:Name="lBtn" Content="Previous" Grid.Row="0" Padding="8" Width="90" HorizontalAlignment="Left" Margin="50,10,0,0" VerticalAlignment="Top" Click="lBtn_Click"/>
-        <Button x:Name="rBtn" Content="Next" Grid.Row="0" Padding="8" Width="90" HorizontalAlignment="Right" Margin="0,10,50,0" VerticalAlignment="Top" Click="rBtn_Click"/>
-
-        <Label x:Name="monthName" Content="Month" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
-        <Separator Grid.Row="0" Margin="0,60,0,0"/>
-
-        <Grid x:Name="calGrid" Grid.Row="1">
+        <Grid x:Name="calGrid" Grid.Row="1" Margin="5,10,5,5">
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
-                <RowDefinition/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
             </Grid.ColumnDefinitions>
 
-            <Label x:Name="sunLbl" Content="Sunday" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="monLbl" Content="Monday" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="tueLbl" Content="Tuesday" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="wedLbl" Content="Wednesday" Grid.Row="0" Grid.Column="3" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="thurLbl" Content="Thursday" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="friLbl" Content="Friday" Grid.Row="0" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-            <Label x:Name="satLbl" Content="Saturday" Grid.Row="0" Grid.Column="6" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="0">
+                <Label x:Name="sunLbl" Content="Sunday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="1">
+                <Label x:Name="monLbl" Content="Monday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="2">
+                <Label x:Name="tueLbl" Content="Tuesday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="3">
+                <Label x:Name="wedLbl" Content="Wednesday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="4">
+                <Label x:Name="thurLbl" Content="Thursday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="5">
+                <Label x:Name="friLbl" Content="Friday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" Grid.Row="0" Grid.Column="6">
+                <Label x:Name="satLbl" Content="Saturday" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+            </Border>
 
-            <Button x:Name="btn0" Content="" Grid.Column="0" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn1" Content="" Grid.Column="1" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn2" Content="" Grid.Column="2" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn3" Content="" Grid.Column="3" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn4" Content="" Grid.Column="4" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn5" Content="" Grid.Column="5" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn6" Content="" Grid.Column="6" Grid.Row="1" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn7" Content="" Grid.Column="0" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn8" Content="" Grid.Column="1" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn9" Content="" Grid.Column="2" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn10" Content="" Grid.Column="3" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn11" Content="" Grid.Column="4" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn12" Content="" Grid.Column="5" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn13" Content="" Grid.Column="6" Grid.Row="2" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn14" Content="" Grid.Column="0" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn15" Content="" Grid.Column="1" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn16" Content="" Grid.Column="2" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn17" Content="" Grid.Column="3" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn18" Content="" Grid.Column="4" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn19" Content="" Grid.Column="5" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn20" Content="" Grid.Column="6" Grid.Row="3" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn21" Content="" Grid.Column="0" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn22" Content="" Grid.Column="1" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn23" Content="" Grid.Column="2" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn24" Content="" Grid.Column="3" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn25" Content="" Grid.Column="4" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn26" Content="" Grid.Column="5" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn27" Content="" Grid.Column="6" Grid.Row="4" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn28" Content="" Grid.Column="0" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn29" Content="" Grid.Column="1" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn30" Content="" Grid.Column="2" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn31" Content="" Grid.Column="3" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn32" Content="" Grid.Column="4" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn33" Content="" Grid.Column="5" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn34" Content="" Grid.Column="6" Grid.Row="5" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn35" Content="" Grid.Column="0" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn36" Content="" Grid.Column="1" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn37" Content="" Grid.Column="2" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn38" Content="" Grid.Column="3" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn39" Content="" Grid.Column="4" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn40" Content="" Grid.Column="5" Grid.Row="6" Click="Button_Click" Background="White"/>
-            <Button x:Name="btn41" Content="" Grid.Column="6" Grid.Row="6" Click="Button_Click" Background="White"/>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="1">
+                <Label x:Name="btn0" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="1">
+                <Label x:Name="btn1" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="1">
+                <Label x:Name="btn2" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="1">
+                <Label x:Name="btn3" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="1">
+                <Label x:Name="btn4" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="1">
+                <Label x:Name="btn5" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="1">
+                <Label x:Name="btn6" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="2">
+                <Label x:Name="btn7" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="2">
+                <Label x:Name="btn8" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="2">
+                <Label x:Name="btn9" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="2">
+                <Label x:Name="btn10" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="2">
+                <Label x:Name="btn11" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="2">
+                <Label x:Name="btn12" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="2">
+                <Label x:Name="btn13" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="3">
+                <Label x:Name="btn14" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="3">
+                <Label x:Name="btn15" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="3">
+                <Label x:Name="btn16" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="3">
+                <Label x:Name="btn17" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="3">
+                <Label x:Name="btn18" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="3">
+                <Label x:Name="btn19" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="3">
+                <Label x:Name="btn20" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="4">
+                <Label x:Name="btn21" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="4">
+                <Label x:Name="btn22" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="4">
+                <Label x:Name="btn23" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="4">
+                <Label x:Name="btn24" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="4">
+                <Label x:Name="btn25" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="4">
+                <Label x:Name="btn26" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="4">
+                <Label x:Name="btn27" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="5">
+                <Label x:Name="btn28" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="5">
+                <Label x:Name="btn29" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="5">
+                <Label x:Name="btn30" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="5">
+                <Label x:Name="btn31" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="5">
+                <Label x:Name="btn32" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="5">
+                <Label x:Name="btn33" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="5">
+                <Label x:Name="btn34" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="0" Grid.Row="6">
+                <Label x:Name="btn35" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="1" Grid.Row="6">
+                <Label x:Name="btn36" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="2" Grid.Row="6">
+                <Label x:Name="btn37" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="3" Grid.Row="6">
+                <Label x:Name="btn38" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="4" Grid.Row="6">
+                <Label x:Name="btn39" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="5" Grid.Row="6">
+                <Label x:Name="btn40" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
+            <Border BorderBrush="Black" BorderThickness="2" CornerRadius="3" Grid.Column="6" Grid.Row="6">
+                <Label x:Name="btn41" Content="" MouseLeftButtonUp="Button_Click" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                    <Label.Style>
+                        <Style TargetType="Label">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="SkyBlue" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Label.Style>
+                </Label>
+            </Border>
         </Grid>
     </Grid>
 </UserControl>

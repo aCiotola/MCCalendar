@@ -9,16 +9,17 @@
     <UserControl.Resources>
         <local1:NameToBrushConverter x:Key="NameToBrushConverter"/>
     </UserControl.Resources>
-    <Grid>
+    <Grid Background="#333">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <Label x:Name="dateLbl" Content="Date" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16"/>
+        <Label x:Name="dateLbl" Content="Date" Grid.Row="0" HorizontalAlignment="Center" Margin="0,10,0,0" VerticalAlignment="Top" FontWeight="Bold" FontSize="16" Foreground="White"/>
         <Separator Grid.Row="0" VerticalAlignment="Top" Margin="0,40,0,0"/>
         
         <DataGrid x:Name="dataGrid" Grid.Row="1" GridLinesVisibility="All" AutoGenerateColumns="False" CanUserSortColumns="False" IsReadOnly="True" 
-                  Margin="100,10,100,0" MouseLeftButtonUp="setEndTime" PreviewMouseLeftButtonDown="setStartTime">
+                  Margin="100,10,100,10" Width="620" CanUserResizeRows="False" MouseLeftButtonUp="setEndTime" HeadersVisibility="Column"
+                  PreviewMouseLeftButtonDown="setStartTime" HorizontalScrollBarVisibility="Hidden">
             
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Time"  Binding="{Binding Path='time'}" Width="150">
@@ -32,6 +33,8 @@
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Background" Value="{Binding client1, Converter={StaticResource NameToBrushConverter}}"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
@@ -39,6 +42,8 @@
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Background" Value="{Binding client2, Converter={StaticResource NameToBrushConverter}}"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
@@ -46,11 +51,26 @@
                     <DataGridTextColumn.ElementStyle>
                         <Style TargetType="{x:Type TextBlock}">
                             <Setter Property="Background" Value="{Binding client3, Converter={StaticResource NameToBrushConverter}}"/>
+                            <Setter Property="Margin" Value="-8,-6,-0,-6"/>
+                            <Setter Property="TextAlignment" Value="Center"/>
+                            <Setter Property="VerticalAlignment" Value="Center"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
                         </Style>
                     </DataGridTextColumn.ElementStyle>
                 </DataGridTextColumn>
-                <DataGridTextColumn Header="" Width="*"/>
             </DataGrid.Columns>
+
+            <DataGrid.Resources>
+                <Style TargetType="ScrollBar">
+                    <Style.Triggers>
+                        <Trigger Property="Orientation" Value="Vertical">
+                            <Setter Property="Margin" Value="20,0,0,0" />
+                            <Setter Property="Width" Value="5"/>
+                            <Setter Property="MinWidth" Value="5" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
         </DataGrid>
     </Grid>
 </UserControl>

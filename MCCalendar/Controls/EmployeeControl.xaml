@@ -23,8 +23,8 @@
         <Label Grid.Row="1" Grid.Column="0" Content="Phone:" FontWeight="Bold"/>
         <TextBox x:Name="phoneText" Text="" Grid.Column="1" Grid.Row="1" Margin="3" />
 
-        <Button Name="clearBtn" Content="Clear Fields" Grid.Row="0" Grid.Column="2" Margin="5,2,0,2" Width="100" HorizontalAlignment="Left" Click="clearFields"/>
-        <Button Name="saveBtn" Content="Save Employee" Grid.Row="1" Grid.Column="2" Margin="5,2,0,2" Width="100" HorizontalAlignment="Left" Click="saveEmployee"/>
+        <Button Name="clearBtn" Content="Clear Fields" Grid.Row="0" Grid.Column="2" Margin="5,2,0,2" Width="120" HorizontalAlignment="Left" Click="clearFields" Background="#FF5C99D6" BorderBrush="White"/>
+        <Button Name="saveBtn" Content="Save Employee" Grid.Row="1" Grid.Column="2" Margin="5,2,0,2" Width="120" HorizontalAlignment="Left" Click="saveEmployee" Background="#FF5C99D6" BorderBrush="White"/>
 
         <DataGrid Name="dataGrid" Grid.Row="8" Grid.ColumnSpan="3" Margin="5,5,5,5" AutoGenerateColumns="False" CanUserAddRows="False"
                   SelectedCellsChanged="selectEmployee" HeadersVisibility="Column" FontSize="16">

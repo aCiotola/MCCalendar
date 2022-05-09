@@ -26,9 +26,9 @@
         <ComboBox x:Name="custCombo" HorizontalAlignment="Left" Margin="150,175,0,0" VerticalAlignment="Top" Width="200" IsEditable="True"/>
 
         <Label x:Name="noteLbl" Content="Notes:" HorizontalAlignment="Left" Margin="30,200,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="noteBox" HorizontalAlignment="Left" Margin="150,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="80"/>
+        <TextBox x:Name="noteBox" HorizontalAlignment="Left" Margin="150,205,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="80" BorderThickness="2"/>
 
-        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Center" Padding="8" Width="90" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="saveAppointment"/>
-        <Button x:Name="deleteBtn" Content="Delete" HorizontalAlignment="Center" Padding="8" Width="90" Margin="200,0,0,10" VerticalAlignment="Bottom" Click="deleteAppointment"/>
+        <Button x:Name="saveBtn" Content="Save" HorizontalAlignment="Center" Padding="8" Width="90" Margin="0,0,0,10" VerticalAlignment="Bottom" Click="saveAppointment" Background="#FF5C99D6" BorderBrush="White"/>
+        <Button x:Name="deleteBtn" Content="Delete" HorizontalAlignment="Center" Padding="8" Width="90" Margin="200,0,0,10" VerticalAlignment="Bottom" Click="deleteAppointment" Background="#FF5C99D6" BorderBrush="White"/>
     </Grid>
 </Window>

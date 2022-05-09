@@ -1,8 +1,10 @@
-﻿using MCCalendar.Controls;
+﻿using MaterialDesignThemes.Wpf;
+using MCCalendar.Controls;
 using MCCalendar.Database;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace MCCalendar
 {
@@ -18,6 +20,9 @@ namespace MCCalendar
         {
             InitializeComponent();
 
+            // Set the color of the app.
+            setColorPalette();
+
             //Only to load EF models so it will not freeze later
             using (var db = new CalendarContext())
             {
@@ -27,6 +32,17 @@ namespace MCCalendar
             // Main page is the expenses.
             UserControl usc = new CalendarControl();
             mainWindow.Children.Add(usc);
+        }
+
+        /// <summary>
+        /// Method responsible for setting the main theme color of the app.
+        /// </summary>
+        private void setColorPalette()
+        {
+            PaletteHelper pHelper = new PaletteHelper();
+            var theme = pHelper.GetTheme();
+            theme.SetPrimaryColor(Colors.SkyBlue);
+            pHelper.SetTheme(theme);
         }
 
         /// <summary>

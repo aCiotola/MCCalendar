@@ -4,7 +4,8 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MCCalendar" Height="800" Width="1000" WindowStartupLocation="CenterScreen">
+        Title="MCCalendar" Height="800" Width="1000" MinHeight="600" MinWidth="800" 
+        WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="ListViewItemStyle1" TargetType="{x:Type ListViewItem}">
             <Style.Triggers>
@@ -26,7 +27,9 @@
         </Grid.RowDefinitions>
 
         <Grid x:Name="mainWindow" Grid.Row="1" Background="White" HorizontalAlignment="Stretch"/>
-        <Grid x:Name="navMenu" Grid.Row="0" Background="White" HorizontalAlignment="Stretch">
+
+        <Separator Grid.Row="1" VerticalAlignment="Top"/>
+        <Grid x:Name="navMenu" Grid.Row="0" Background="White" HorizontalAlignment="Stretch" Margin="20,0,0,0">
             <StackPanel VerticalAlignment="Center">
                 <ListView x:Name="listViewMenu" Foreground="#FF5C99D6" SelectionChanged="selectedNavigation" 
                           ItemContainerStyle="{StaticResource ListViewItemStyle1}">
@@ -35,8 +38,8 @@
                             <StackPanel Orientation="Horizontal"></StackPanel>
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
-                    
-                    <ListViewItem x:Name="itemCalendar">                        
+
+                    <ListViewItem x:Name="itemCalendar">
                         <StackPanel Orientation="Horizontal">
                             <materialDesign:PackIcon Kind="Calendar" Height="35" Width="35"/>
                             <TextBlock Text="Calendar" VerticalAlignment="Center" FontSize="14" Margin="3 0 0 0"/>
@@ -64,7 +67,7 @@
                             <TextBlock Text="Clients" VerticalAlignment="Center" FontSize="14" Margin="3 0 0 0"/>
                         </StackPanel>
                     </ListViewItem>
-                    
+
                 </ListView>
             </StackPanel>
         </Grid>

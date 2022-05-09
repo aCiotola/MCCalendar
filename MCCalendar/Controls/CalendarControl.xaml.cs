@@ -21,7 +21,7 @@ namespace MCCalendar.Controls
     /// </summary>
     public partial class CalendarControl : UserControl
     {
-        private Button[] buttons; //Keep track of button text.
+        private Label[] labels; //Keep track of calendar labels.
         private int monthNum = -1; //Keep track of current month.
         private int yearNum = -1; //Keep track of current year.
 
@@ -31,9 +31,9 @@ namespace MCCalendar.Controls
         public CalendarControl()
         {
             InitializeComponent();
+
             PrepareCells();
             SetupCalendar(DateTime.Now);
-            fillBorders();
         }
 
         /// <summary>
@@ -91,10 +91,10 @@ namespace MCCalendar.Controls
 
             //Set the contents of the buttons to the day of the month.
             int count = 0;
-            for (int i = startEndCol[0]; i < buttons.Length; i++)
+            for (int i = startEndCol[1]; i < labels.Length; i++)
             {
                 count++;
-                buttons[i].Content = count;
+                labels[i].Content = count+"";
 
                 if (count == lastDayOfMonth.Day)
                     break;
@@ -106,67 +106,49 @@ namespace MCCalendar.Controls
         /// </summary>
         private void PrepareCells()
         {
-            buttons = new Button[42];
-            buttons[0] = btn0;
-            buttons[1] = btn1;
-            buttons[2] = btn2;
-            buttons[3] = btn3;
-            buttons[4] = btn4;
-            buttons[5] = btn5;
-            buttons[6] = btn6;
-            buttons[7] = btn7;
-            buttons[8] = btn8;
-            buttons[9] = btn9;
-            buttons[10] = btn10;
-            buttons[11] = btn11;
-            buttons[12] = btn12;
-            buttons[13] = btn13;
-            buttons[14] = btn14;
-            buttons[15] = btn15;
-            buttons[16] = btn16;
-            buttons[17] = btn17;
-            buttons[18] = btn18;
-            buttons[19] = btn19;
-            buttons[20] = btn20;
-            buttons[21] = btn21;
-            buttons[22] = btn22;
-            buttons[23] = btn23;
-            buttons[24] = btn24;
-            buttons[25] = btn25;
-            buttons[26] = btn26;
-            buttons[27] = btn27;
-            buttons[28] = btn28;
-            buttons[29] = btn29;
-            buttons[30] = btn30;
-            buttons[31] = btn31;
-            buttons[32] = btn32;
-            buttons[33] = btn33;
-            buttons[34] = btn34;
-            buttons[35] = btn35;
-            buttons[36] = btn36;
-            buttons[37] = btn37;
-            buttons[38] = btn38;
-            buttons[39] = btn39;
-            buttons[40] = btn40;
-            buttons[41] = btn41;
-        }
-
-        /// <summary>
-        /// Method responsible for displaying a black border around the grids.
-        /// </summary>
-        private void fillBorders()
-        {
-            for (int i = 0; i < 7; i++)
-            {
-                Rectangle rec = new Rectangle()
-                {
-                    Stroke = Brushes.Black,
-                    StrokeThickness = 1
-                };
-                Grid.SetColumn(rec, i);
-                Grid.SetRow(rec, 0);
-                calGrid.Children.Add(rec);                
-            }
+            labels = new Label[42];
+            labels[0] = btn0;
+            labels[1] = btn1;
+            labels[2] = btn2;
+            labels[3] = btn3;
+            labels[4] = btn4;
+            labels[5] = btn5;
+            labels[6] = btn6;
+            labels[7] = btn7;
+            labels[8] = btn8;
+            labels[9] = btn9;
+            labels[10] = btn10;
+            labels[11] = btn11;
+            labels[12] = btn12;
+            labels[13] = btn13;
+            labels[14] = btn14;
+            labels[15] = btn15;
+            labels[16] = btn16;
+            labels[17] = btn17;
+            labels[18] = btn18;
+            labels[19] = btn19;
+            labels[20] = btn20;
+            labels[21] = btn21;
+            labels[22] = btn22;
+            labels[23] = btn23;
+            labels[24] = btn24;
+            labels[25] = btn25;
+            labels[26] = btn26;
+            labels[27] = btn27;
+            labels[28] = btn28;
+            labels[29] = btn29;
+            labels[30] = btn30;
+            labels[31] = btn31;
+            labels[32] = btn32;
+            labels[33] = btn33;
+            labels[34] = btn34;
+            labels[35] = btn35;
+            labels[36] = btn36;
+            labels[37] = btn37;
+            labels[38] = btn38;
+            labels[39] = btn39;
+            labels[40] = btn40;
+            labels[41] = btn41;
         }
 
         /// <summary>
@@ -174,9 +156,9 @@ namespace MCCalendar.Controls
         /// </summary>
         private void ClearCells()
         {
-            for (int i = 0; i < buttons.Length; i++)
+            for (int i = 0; i < labels.Length; i++)
             {
-                buttons[i].Content = "";
+                labels[i].Content = "";
             }
         }
 
@@ -187,10 +169,10 @@ namespace MCCalendar.Controls
         /// <param name="e"></param>
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            Button btn = sender as Button;
-            if (!btn.Content.Equals(""))
+            Label label = sender as Label;
+            if (!label.Content.Equals(""))
             {
-                int day = Int32.Parse(btn.Content.ToString());
+                int day = Int32.Parse(label.Content+"");
 
                 DateTime date = new DateTime(yearNum, monthNum, day);
                 AppointmentControl appointmentControl = new AppointmentControl(date);
